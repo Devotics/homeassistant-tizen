@@ -10,7 +10,7 @@ export const reducer = createReducer({})({
     {},
   ),
   [EVENT_STATE_CHANGED]: (state, action) => ({
-    ...state.entities,
-    [action.entity_id]: action.new_state,
+    ...state,
+    [action.payload.entity_id]: action.payload.new_state,
   }),
 });

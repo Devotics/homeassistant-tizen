@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
-import { doRefreshAuthentication } from '../auth/refreshAuthentication';
-import { doGetStates } from '../ws/actions';
+import { doGetStates, doSubscribeToStateChange } from '../ws/actions';
 import styles from './Entities.module.scss';
 import { Entity } from './Entity';
 import { selectVisibleEntities } from './selectors';
@@ -20,15 +19,15 @@ export const Entities = compose(
       entities: selectVisibleEntities(state),
     }),
     {
-      refreshAuthentication: doRefreshAuthentication,
       getStates: doGetStates,
+      subscribeToStateChange: doSubscribeToStateChange,
     },
   ),
   lifecycle({
     componentDidMount() {
-      const { refreshAuthentication, getStates } = this.props;
-      refreshAuthentication();
+      const { getStates, subscribeToStateChange } = this.props;
       getStates();
+      subscribeToStateChange();
     },
   }),
 )(EntitiesBase);

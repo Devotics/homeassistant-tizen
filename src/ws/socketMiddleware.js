@@ -14,7 +14,7 @@ const formatResultType = (command, message) => {
 };
 
 const formatEventType = (message) => {
-  const baseType = message.type.toUpperCase();
+  const baseType = message.event.event_type.toUpperCase();
   return `@ws/event/${baseType}`;
 };
 

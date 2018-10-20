@@ -17,3 +17,5 @@ export const doSubscribeEvents = eventType => (dispatch, getState) => dispatch({
     event_type: eventType,
   },
 });
+
+export const doSubscribeToStateChange = () => doSubscribeEvents('state_changed');

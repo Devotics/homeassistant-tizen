@@ -8,14 +8,16 @@ export const Card = ({ className, children, props }) => (
   </div>
 );
 
-Card.Title = ({ className, children, props }) => (
+const CardTitle = ({ className, children, props }) => (
   <h3 className={cx(styles.CardTitle, className)} {...props}>
     {children}
   </h3>
 );
+Card.Title = CardTitle;
 
-Card.Description = ({ className, children, props }) => (
+const CardDescription = ({ className, children, props }) => (
   <p className={cx(styles.CardDescription, className)} {...props}>
     {children}
   </p>
 );
+Card.Description = CardDescription;

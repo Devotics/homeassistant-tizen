@@ -1,0 +1,42 @@
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Card {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.72);
+  overflow: hidden;
+  margin-top: 16px;
+  margin-right: 20px;
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
+  padding: 8px 12px;
+}
+
+.Card:hover {
+  background: #e8f0fe;
+}
+
+.CardTitle {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0;
+  @include text-ellipsis();
+}
+
+.CardDescription {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.8em;
+  line-height: 1.35;
+  font-weight: 400;
+  margin: 0;
+  @include text-ellipsis();
+}

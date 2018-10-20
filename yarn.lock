@@ -4367,11 +4367,6 @@ hoek@4.x.x:
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
   integrity sha512-QLg82fGkfnJ/4iy1xZ81/9SIJiq1NGFUMGs6ParyjBZr6jW2Ufj/snDqTHixNlHdPNwN2RLVD0Pi3igeK9+JfA==
 
-home-assistant-js-websocket@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/home-assistant-js-websocket/-/home-assistant-js-websocket-3.1.4.tgz#4ff338a51d272650db96cd5c67aa05878ef234a4"
-  integrity sha512-lkAglJ04ja98awHPqI09On8v1wHr0/QmjLYlPGC6LWF7HBMAtYMasQ2mPEb5nLLZrD0DroxNVQK2owlRy3+NOQ==
-
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -8027,16 +8022,6 @@ react-scripts@^2.0.5:
   optionalDependencies:
     fsevents "1.2.4"
 
-react-tv-navigation@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-tv-navigation/-/react-tv-navigation-0.4.2.tgz#676ae6cb20d778526f51b2831513d9ca650891c2"
-  integrity sha512-PwjyPVQXa7qjm1uu3pxlNiDTblnHG1Tc7uYgqDDv9/9LIwTl/JwnEgGmLXIpZABiSPdFnSfc1l8KGC0b3WDkRA==
-
-react-tv@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-tv/-/react-tv-0.4.2.tgz#29fb34f3df1069fc9684578e61ce90f5bd5e480a"
-  integrity sha512-ahCiNjNeDruTHZmha0X9BNBPaOvciWtsmbw+XAJE1dH2YJo+QyB26rGSiNawZhy4jifx49sdHP54BOg2nc9itw==
-
 react@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.5.2.tgz#19f6b444ed139baa45609eee6dc3d318b3895d42"
@@ -8772,6 +8757,11 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
+sockette@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/sockette/-/sockette-2.0.0.tgz#3da2f3459288d55cedcb6de580aeae68ae4554fc"
+  integrity sha1-PaLzRZKI1Vzty23lgK6uaK5FVPw=
+
 sockjs-client@1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/sockjs-client/-/sockjs-client-1.1.5.tgz#1bb7c0f7222c40f42adf14f4442cbd1269771a83"
@@ -9447,6 +9437,11 @@ uglifyjs-webpack-plugin@^1.2.4:
     uglify-es "^3.3.4"
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
+
+unfetch@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/unfetch/-/unfetch-4.0.1.tgz#8750c4c7497ade75d40387d7dbc4ba024416b8f6"
+  integrity sha512-HzDM9NgldcRvHVDb/O9vKoUszVij30Yw5ePjOZJig8nF/YisG7QN/9CBXZ8dsHLouXMeLZ82r+Jod9M2wFkEbQ==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

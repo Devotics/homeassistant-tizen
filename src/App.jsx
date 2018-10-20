@@ -1,28 +1,29 @@
-import { createConnection, getAuth, subscribeEntities } from 'home-assistant-js-websocket';
 import React from 'react';
 import styles from './App.module.scss';
+import { refreshAuthentication } from './auth/refreshAuthentication';
 import { Entity } from './Entity';
+import { getStates, subscribeEvents } from './ws/commands';
+import { connect } from './ws/connect';
 
 export class App extends React.Component {
   state = {
     entities: undefined,
   };
 
-  componentDidMount() {
-    this.connect();
+  async componentDidMount() {
+    const { accessToken } = await refreshAuthentication({
+      url: `http://${process.env.REACT_APP_HASS_HOST}`,
+      refreshToken: process.env.REACT_APP_HASS_REFRESH_TOKEN,
+      clientId: process.env.REACT_APP_HASS_CLIENT_ID,
+    });
+    const store = await connect({
+      url: `ws://${process.env.REACT_APP_HASS_HOST}`,
+      accessToken,
+    });
+    store.subscribe(state => this.setState(state));
+    store.dispatch(getStates());
+    store.dispatch(subscribeEvents('state_changed'));
   }
-
-  connect = async () => {
-    const auth = await getAuth({
-      hassUrl: 'http://192.168.0.5:8123',
-      saveTokens: data => localStorage.setItem('tokens', JSON.stringify(data)),
-      loadTokens: () => Promise.resolve(JSON.parse(localStorage.getItem('tokens'))),
-    });
-    const connection = await createConnection({ auth });
-    subscribeEntities(connection, (entities) => {
-      this.setState({ entities: Object.values(entities) });
-    });
-  };
 
   render() {
     const { entities } = this.state;

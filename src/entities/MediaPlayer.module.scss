@@ -2,12 +2,19 @@
   background-size: cover;
 }
 
+.MediaPlayer__playing {
+  animation: playing 1s ease-in-out infinite alternate;
+}
+
 .MediaPlayer__playing div,
 .MediaPlayer__paused div {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.MediaPlayer__on {
+.MediaPlayer__on,
+.MediaPlayer__playing,
+.MediaPlayer__paused,
+.MediaPlayer__idle {
   background: #11998e;
   background: linear-gradient(135deg, #38ef7d, #11998e);
 }
@@ -15,4 +22,15 @@
 .MediaPlayer__off {
   background: #0f2027;
   background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+}
+
+@keyframes playing {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 45px -9px rgba(0, 0, 0, 0.3);
+  }
 }

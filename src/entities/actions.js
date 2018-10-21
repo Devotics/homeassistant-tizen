@@ -10,3 +10,10 @@ export const doToggleLight = entityId => doCallService({
   },
 });
 export const doGetMediaPlayerThumbnail = entityId => doExecuteCommand({ type: 'media_player_thumbnail', entity_id: entityId });
+export const doToggleMediaPlayer = entityId => doCallService({
+  domain: 'media_player',
+  service: 'media_play_pause',
+  serviceData: {
+    entity_id: entityId,
+  },
+});

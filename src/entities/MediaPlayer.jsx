@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { focusable } from '../navigation/focusable';
 import { Card } from '../ui/Card';
-import { doGetMediaPlayerThumbnail } from './actions';
+import { doGetMediaPlayerThumbnail, doToggleMediaPlayer } from './actions';
 import styles from './MediaPlayer.module.scss';
 import { selectThumbnailContentById } from './selectors';
 
@@ -12,12 +12,13 @@ const hasMedia = mediaPlayer => mediaPlayer.state === 'playing' || mediaPlayer.s
 
 export const MediaPlayerBase = React.forwardRef(
   ({
-    mediaPlayer, thumbnail, getMediaPlayerThumbnail, ...props
+    mediaPlayer, thumbnail, getMediaPlayerThumbnail, toggleMediaPlayer, ...props
   }, ref) => (
     <Card
       ref={ref}
       className={cx(styles.MediaPlayer, styles[`MediaPlayer__${mediaPlayer.state}`])}
       style={hasMedia(mediaPlayer) && thumbnail ? { backgroundImage: thumbnail } : {}}
+      onClick={() => toggleMediaPlayer(mediaPlayer.entity_id)}
       {...props}
     >
       <Card.Title>{mediaPlayer.attributes.friendly_name}</Card.Title>
@@ -37,7 +38,10 @@ export const MediaPlayer = compose(
     (state, ownProps) => ({
       thumbnail: selectThumbnailContentById(ownProps.mediaPlayer.entity_id)(state),
     }),
-    { getMediaPlayerThumbnail: doGetMediaPlayerThumbnail },
+    {
+      getMediaPlayerThumbnail: doGetMediaPlayerThumbnail,
+      toggleMediaPlayer: doToggleMediaPlayer,
+    },
   ),
   lifecycle({
     componentDidMount() {

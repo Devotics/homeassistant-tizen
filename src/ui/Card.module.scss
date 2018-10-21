@@ -19,8 +19,9 @@
   padding: 8px 12px;
 }
 
-.Card:hover {
+.Card:focus {
   background: #e8f0fe;
+  outline: 1px solid #1967d2;
 }
 
 .CardTitle {

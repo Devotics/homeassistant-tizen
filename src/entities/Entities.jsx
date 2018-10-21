@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { Section } from '../ui/Section';
-import { doGetStates, doSubscribeToStateChange } from '../ws/actions';
+import { doGetStates, doSubscribeToStateChange } from './actions';
 import styles from './Entities.module.scss';
 import { FocusableEntity } from './Entity';
 import { FocusableLight } from './Light';

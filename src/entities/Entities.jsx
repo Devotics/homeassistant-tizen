@@ -4,8 +4,8 @@ import { compose, lifecycle } from 'recompose';
 import { Section } from '../ui/Section';
 import { doGetStates, doSubscribeToStateChange } from './actions';
 import styles from './Entities.module.scss';
-import { FocusableEntity } from './Entity';
-import { FocusableLight } from './Light';
+import { Light } from './Light';
+import { MediaPlayer } from './MediaPlayer';
 import { selectLights, selectMediaPlayers } from './selectors';
 
 const EntitiesBase = ({ lights, mediaPlayers }) => (
@@ -19,15 +19,15 @@ const EntitiesBase = ({ lights, mediaPlayers }) => (
       <Section>
         <Section.Title>Lights</Section.Title>
         {lights.map(light => (
-          <FocusableLight key={light.entity_id} light={light} />
+          <Light key={light.entity_id} light={light} />
         ))}
       </Section>
     )}
     {mediaPlayers && (
       <Section>
         <Section.Title>Media Players</Section.Title>
-        {mediaPlayers.map(entity => (
-          <FocusableEntity key={entity.entity_id} entity={entity} />
+        {mediaPlayers.map(mediaPlayer => (
+          <MediaPlayer key={mediaPlayer.entity_id} mediaPlayer={mediaPlayer} />
         ))}
       </Section>
     )}

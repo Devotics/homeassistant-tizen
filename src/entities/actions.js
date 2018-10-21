@@ -9,3 +9,4 @@ export const doToggleLight = entityId => doCallService({
     entity_id: entityId,
   },
 });
+export const doGetMediaPlayerThumbnail = entityId => doExecuteCommand({ type: 'media_player_thumbnail', entity_id: entityId });

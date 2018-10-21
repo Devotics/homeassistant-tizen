@@ -1,0 +1,18 @@
+.MediaPlayer {
+  background-size: cover;
+}
+
+.MediaPlayer__playing div,
+.MediaPlayer__paused div {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.MediaPlayer__on {
+  background: #11998e;
+  background: linear-gradient(135deg, #38ef7d, #11998e);
+}
+
+.MediaPlayer__off {
+  background: #0f2027;
+  background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+}

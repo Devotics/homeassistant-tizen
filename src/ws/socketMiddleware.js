@@ -50,7 +50,13 @@ export const socketMiddleware = ({ dispatch, getState }) => (next) => {
         return dispatch({ type: AUTH_INVALID, payload: message.message });
       case 'result': {
         const command = selectCommandById(message.id)(getState());
-        return dispatch({ type: formatResultType(command, message), payload: message.result });
+        return dispatch({
+          type: formatResultType(command, message),
+          payload: {
+            ...command,
+            result: message.result,
+          },
+        });
       }
       case 'event': {
         return dispatch({ type: formatEventType(message), payload: message.event.data });

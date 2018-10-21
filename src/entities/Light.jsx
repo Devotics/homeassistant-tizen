@@ -7,7 +7,7 @@ import { Card } from '../ui/Card';
 import { doToggleLight } from './actions';
 import styles from './Light.module.scss';
 
-export const Light = React.forwardRef(({ light, toggleLight, ...props }, ref) => (
+export const LightBase = React.forwardRef(({ light, toggleLight, ...props }, ref) => (
   <Card
     ref={ref}
     className={cx(styles.Light, styles[`Light__${light.state}`])}
@@ -18,10 +18,10 @@ export const Light = React.forwardRef(({ light, toggleLight, ...props }, ref) =>
   </Card>
 ));
 
-export const FocusableLight = compose(
+export const Light = compose(
   connect(
     null,
     { toggleLight: doToggleLight },
   ),
   focusable,
-)(Light);
+)(LightBase);

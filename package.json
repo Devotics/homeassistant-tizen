@@ -19,7 +19,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm build/precache-manifest* && rm build/service-worker.js && rm -r ../workspace-2.5/HelloTizen/static/ && cp -r build/* ../workspace-2.5/HelloTizen/",
+    "build": "react-scripts build && cp tizen/* build",
+    "tizen:build": "tizen.bat build-web -- build",
+    "tizen:package": "tizen.bat package -t wgt -s default -- build/.buildResult",
+    "tizen:install": "tizen.bat install -n HelloTizen.wgt -- build/.buildResult",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx}"

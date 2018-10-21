@@ -1,22 +1,47 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
+import { Section } from '../ui/Section';
 import { doGetStates, doSubscribeToStateChange } from '../ws/actions';
 import styles from './Entities.module.scss';
 import { FocusableEntity } from './Entity';
-import { selectVisibleEntities } from './selectors';
+import { selectLights, selectMediaPlayers, selectSensors } from './selectors';
 
-const EntitiesBase = ({ entities }) => (
+const EntitiesBase = ({ lights, sensors, mediaPlayers }) => (
   <div className={styles.Entities}>
-    <h1>Entities</h1>
-    {entities && entities.map(entity => <FocusableEntity key={entity.entity_id} entity={entity} />)}
+    {lights && (
+      <Section>
+        <Section.Title>Lights</Section.Title>
+        {lights.map(entity => (
+          <FocusableEntity key={entity.entity_id} entity={entity} />
+        ))}
+      </Section>
+    )}
+    {sensors && (
+      <Section>
+        <Section.Title>Sensors</Section.Title>
+        {sensors.map(entity => (
+          <FocusableEntity key={entity.entity_id} entity={entity} />
+        ))}
+      </Section>
+    )}
+    {mediaPlayers && (
+      <Section>
+        <Section.Title>Media Players</Section.Title>
+        {mediaPlayers.map(entity => (
+          <FocusableEntity key={entity.entity_id} entity={entity} />
+        ))}
+      </Section>
+    )}
   </div>
 );
 
 export const Entities = compose(
   connect(
     state => ({
-      entities: selectVisibleEntities(state),
+      lights: selectLights(state),
+      sensors: selectSensors(state),
+      mediaPlayers: selectMediaPlayers(state),
     }),
     {
       getStates: doGetStates,

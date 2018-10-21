@@ -4,7 +4,7 @@ import styles from './Card.module.scss';
 
 export const Card = React.forwardRef(({ className, children, ...props }, ref) => (
   <div ref={ref} className={cx(styles.Card, className)} role="button" tabIndex="0" {...props}>
-    {children}
+    <div>{children}</div>
   </div>
 ));
 

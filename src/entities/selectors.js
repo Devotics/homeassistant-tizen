@@ -25,5 +25,4 @@ export const selectEntitiesOfType = type => createSelector(selectVisibleEntities
 });
 
 export const selectLights = selectEntitiesOfType('light');
-export const selectSensors = selectEntitiesOfType('sensor');
 export const selectMediaPlayers = selectEntitiesOfType('media_player');

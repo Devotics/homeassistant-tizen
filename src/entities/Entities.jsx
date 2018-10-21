@@ -5,23 +5,21 @@ import { Section } from '../ui/Section';
 import { doGetStates, doSubscribeToStateChange } from '../ws/actions';
 import styles from './Entities.module.scss';
 import { FocusableEntity } from './Entity';
-import { selectLights, selectMediaPlayers, selectSensors } from './selectors';
+import { FocusableLight } from './Light';
+import { selectLights, selectMediaPlayers } from './selectors';
 
-const EntitiesBase = ({ lights, sensors, mediaPlayers }) => (
+const EntitiesBase = ({ lights, mediaPlayers }) => (
   <div className={styles.Entities}>
+    <h1>
+      Welcome home,
+      {' '}
+      <em>Antoine.</em>
+    </h1>
     {lights && (
       <Section>
         <Section.Title>Lights</Section.Title>
-        {lights.map(entity => (
-          <FocusableEntity key={entity.entity_id} entity={entity} />
-        ))}
-      </Section>
-    )}
-    {sensors && (
-      <Section>
-        <Section.Title>Sensors</Section.Title>
-        {sensors.map(entity => (
-          <FocusableEntity key={entity.entity_id} entity={entity} />
+        {lights.map(light => (
+          <FocusableLight key={light.entity_id} light={light} />
         ))}
       </Section>
     )}
@@ -40,7 +38,6 @@ export const Entities = compose(
   connect(
     state => ({
       lights: selectLights(state),
-      sensors: selectSensors(state),
       mediaPlayers: selectMediaPlayers(state),
     }),
     {

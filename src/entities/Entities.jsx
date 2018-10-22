@@ -3,18 +3,12 @@ import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { Section } from '../ui/Section';
 import { doGetStates, doSubscribeToStateChange } from './actions';
-import styles from './Entities.module.scss';
 import { Light } from './Light';
 import { MediaPlayer } from './MediaPlayer';
 import { selectLights, selectMediaPlayers } from './selectors';
 
 const EntitiesBase = ({ lights, mediaPlayers }) => (
-  <div className={styles.Entities}>
-    <h1>
-      Welcome home,
-      {' '}
-      <em>Antoine.</em>
-    </h1>
+  <main>
     {lights && (
       <Section>
         <Section.Title>Lights</Section.Title>
@@ -31,7 +25,7 @@ const EntitiesBase = ({ lights, mediaPlayers }) => (
         ))}
       </Section>
     )}
-  </div>
+  </main>
 );
 
 export const Entities = compose(

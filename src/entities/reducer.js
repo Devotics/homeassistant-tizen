@@ -1,4 +1,4 @@
-import { createReducer } from '../utils/createReducer';
+import { createReducer } from '../createReducer';
 import {
   EVENT_STATE_CHANGED,
   RESULT_GET_STATES_SUCCESS,

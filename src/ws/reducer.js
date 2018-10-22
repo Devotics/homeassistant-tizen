@@ -1,4 +1,4 @@
-import { createReducer } from '../utils/createReducer';
+import { createReducer } from '../createReducer';
 import { COMMAND_REQUEST } from './types';
 
 export const reducer = createReducer({

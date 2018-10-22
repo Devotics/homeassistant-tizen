@@ -17,7 +17,11 @@ export const MediaPlayerBase = React.forwardRef(
     <Card
       ref={ref}
       className={cx(styles.MediaPlayer, styles[`MediaPlayer__${mediaPlayer.state}`])}
-      style={hasMedia(mediaPlayer) && thumbnail ? { backgroundImage: thumbnail } : {}}
+      style={
+        hasMedia(mediaPlayer) && thumbnail
+          ? { backgroundImage: thumbnail, backgroundSize: 'cover' }
+          : {}
+      }
       onClick={() => toggleMediaPlayer(mediaPlayer.entity_id)}
       {...props}
     >
